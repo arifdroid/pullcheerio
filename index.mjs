@@ -15,7 +15,7 @@ const cheerio = require('cheerio');
 
 const url ='https://www.skincarisma.com/products/simple/kind-to-skin-micellar-water';
 
-const url2 = 'https://www.skincarisma.com/brands?sym=T';
+const url2 = 'https://www.skincarisma.com/brands?sym=C';
 
 const urltest = 'http://jkorpela.fi/www/testel.html';
 
@@ -63,6 +63,8 @@ const urlProduct_3 = 'https://www.skincarisma.com/brands/the-ordinary?brand%5B%5
     product_All_List_1.forEach(elementHere =>{
 
         var stringstringmofaka = elementHere.replace("\"><p>","").replace("</p></div>",""); 
+
+        
 
         this_ProductList_1.push(stringstringmofaka);
 
@@ -169,6 +171,18 @@ const urlProduct_3 = 'https://www.skincarisma.com/brands/the-ordinary?brand%5B%5
 
         
         //console.log(JSON.stringify(el).replace("\"","").replace("\"","").length)
+
+        var pattern = "&apos;";
+        var patternn = new RegExp(pattern,'gi');
+
+        var foundd = el.match(patternn);
+
+        if(foundd===null){
+
+        }else{
+
+            el = el.replace("&apos;","");
+        }
         
          if(JSON.stringify(el).replace("\"","").replace("\"","").length==4){
             fourLetterBrand.push(el);
@@ -279,6 +293,17 @@ const urlProduct_3 = 'https://www.skincarisma.com/brands/the-ordinary?brand%5B%5
 
     dualWordsBrand.forEach((el,i)=>{
 
+        var pattern = "&apos;";
+        var patternn = new RegExp(pattern,'gi');
+
+        var foundd = el.match(patternn);
+
+        if(foundd===null){
+
+        }else{
+
+            el = el.replace("&apos;","");
+        }
         
         //console.log(JSON.stringify(el).replace("\"","").replace("\"","").length)
         
@@ -531,7 +556,21 @@ const urlProduct_3 = 'https://www.skincarisma.com/brands/the-ordinary?brand%5B%5
     // console.log('6 letter brands >> '+ sixLetterBrand)
 
 
-    
+    console.log('\n\n');
+
+    //here concat all brand name
+
+
+    var concatBrandAll = twoLetterBrand+thirdLetterBrand+fourLetterBrand+fiveLetterBrand+sixLetterBrand+sevenLetterBrand+eightLetterBrand+nineLetterBrand+tenLetterBrand+elevenLetterBrand+twelveLetterBrand;
+    concatBrandAll= concatBrandAll+_13thLetterBrand+_14thLetterBrand+_15thLetterBrand+_16thLetterBrand+_17thLetterBrand+dualMoreWords_twoLetterBrand+dualMoreWords_thirdLetterBrand+dualMoreWords_fourLetterBrand+dualMoreWords_fiveLetterBrand+dualMoreWords_sixLetterBrand+dualMoreWords_sevenLetterBrand;
+    concatBrandAll= concatBrandAll+dualMoreWords_eightLetterBrand+dualMoreWords_nineLetterBrand+dualMoreWords_tenLetterBrand+dualMoreWords_elevenLetterBrand+dualMoreWords_twelveLetterBrand+dualMoreWords_13thLetterBrand+dualMoreWords_14thLetterBrand+dualMoreWords_15thLetterBrand+dualMoreWords_16thLetterBrand+dualMoreWords_17thLetterBrand;
+    concatBrandAll= concatBrandAll+dualMoreWords_18thLetterBrand+dualMoreWords_19thLetterBrand+dualMoreWords_20thLetterBrand+dualMoreWords_21thLetterBrand+dualMoreWords_22thLetterBrand+dualMoreWords_23thLetterBrand+dualMoreWords_24thLetterBrand+dualMoreWords_25thLetterBrand+dualMoreWords_26thLetterBrand+dualMoreWords_27thLetterBrand+dualMoreWords_28thLetterBrand;
+    concatBrandAll=concatBrandAll+dualMoreWords_29thLetterBrand;
+    console.log('CONKEK ,,>', concatBrandAll)
+
+
+
+    console.log('\n\n');
 
 //    testloop();
 
